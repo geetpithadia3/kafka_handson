@@ -24,8 +24,8 @@ public class ProducerDemoWithKey {
 
         for(int i=0;i<10;i++){
             String topic = "java-topic";
-            String value = "Hello World: "+Integer.toString(i);
-            String key = "id_"+ Integer.toString(i);
+            String value = "Hello World: "+ i;
+            String key = "id_"+ i;
             // create a ProducerRecord
             ProducerRecord<String,String> record = new ProducerRecord<String,String>(topic,key,value);
 
@@ -41,7 +41,7 @@ public class ProducerDemoWithKey {
             // id_8: P1
             // id_9: P2
 
-            // send Data
+            // send data
             producer.send(record, new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata recordMetadata, Exception e) {
